@@ -72,7 +72,7 @@ dockerstats_recurse(
 )
 ```
 
-## How data are cleaned
+## How columns are transformed
 
 + `CPUPerc` and `MemPerc` are stripped from the trailing `%`, and are turned into numeric
 
