@@ -64,10 +64,11 @@ dockerstats("mongo", "proxy")
 By default, the callback is `print`, but you can define your own. For example, this function will run the `dockerstats()` fun every 2 seconds and save it to a file. 
 
 ```{r eval = FALSE}
-dockerstats_recurse(
-  every = 2,
+dockerstats::dockerstats_recurse(
+  "bloomdev",
   callback = function(res){
-    write.table(res, "dockerstats.csv", append = TRUE, col.names = FALSE)
+    print(res)
+    write.table(res, "dockerstats.csv", append = TRUE, col.names = FALSE, row.names = FALSE, sep = ",")
   }
 )
 ```
@@ -79,3 +80,4 @@ dockerstats_recurse(
 + `MEM USAGE / LIMIT` is splitted into two columns, `MemUsage` and `MemLimit
 
 + `NET I/O` and `BLOCK I/O` are splitted into two columns, respectively `NetI` & `NetO`, and `BlockI` & `BlockO`
+
