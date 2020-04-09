@@ -1,0 +1,72 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# dockerstats
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+`{dockerstats}` is a small wrapper around `docker stats` that returns the output of this command as an R data.frame. 
+
+## Installation
+
+You can install the released version of `{dockerstats}` from GitHubwith:
+
+``` r
+remotes:install_github("ColinFay/dockerstats")
+```
+
+## How to 
+
+```{r}
+library(dockerstats)
+```
+
+
+### dockerstats()
+
+By default, `dockerstats()` returns the stats for running containers. 
+
+```{r}
+dockerstats()
+```
+
+You can return stats for all containers (not just running)
+
+```{r}
+dockerstats(all = TRUE)
+```
+
+Or from a subset of containers:
+
+```{r}
+dockerstats("mongo", "proxy")
+```
+
+### dockerstats_recurse
+
+`dockerstats_recurse()` is a wrapper around `dockerstats()` that runs every `every` seconds, calling the `callback` function everytime a loop is completed. 
+
+By default, the callback is `print`, but you can define your own. For example, this function will run the `dockerstats()` fun every 2 seconds and save it to a file. 
+
+```{r eval = FALSE}
+dockerstats_recurse(
+  every = 2,
+  callback = function(res){
+    write.table(res, "dockerstats.csv", append = TRUE, col.names = FALSE)
+  }
+)
+```
+
