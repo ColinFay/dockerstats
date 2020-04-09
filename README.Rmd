@@ -20,6 +20,8 @@ knitr::opts_chunk$set(
 
 `{dockerstats}` is a small wrapper around `docker stats` that returns the output of this command as an R data.frame. 
 
+Note that this package calls `system("docker stats")` so you should be able to do this from your R command line. I'll probably refactor that at some point. 
+
 ## Installation
 
 You can install the released version of `{dockerstats}` from GitHubwith:
@@ -69,4 +71,3 @@ dockerstats_recurse(
   }
 )
 ```
-

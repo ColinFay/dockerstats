@@ -10,6 +10,10 @@
 `{dockerstats}` is a small wrapper around `docker stats` that returns
 the output of this command as an R data.frame.
 
+Note that this package calls `system("docker stats")` so you should be
+able to do this from your R command line. I’ll probably refactor that at
+some point.
+
 ## Installation
 
 You can install the released version of `{dockerstats}` from GitHubwith:
@@ -38,19 +42,19 @@ dockerstats()
 #> 5 1c32d35562fb         rocketchat
 #> 6 9e9605a015d4              mongo
 #>                                                                 ID CPUPerc
-#> 1 ea890803de3c6bf430c39b4c9e03ae79f18a01f453fe6794ca2d02882c2f905b   0.14%
+#> 1 ea890803de3c6bf430c39b4c9e03ae79f18a01f453fe6794ca2d02882c2f905b   0.41%
 #> 2 d74bd9004627efa518ea0fe669434fa6ccd2f86491e39311c9211bfb860839e2   0.00%
 #> 3 7f3b0a08a7aa502657d0d5459f9cd412f0399825f8e15262bf47fe0cd4cc825d   0.00%
 #> 4 ca323ae39e42d898417b019b2bf7f06feaf877d248cd71b9cad8eebc3f5e1126   0.00%
-#> 5 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb   0.60%
-#> 6 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167   1.30%
-#>              MemUsage          NetIO BlockIO MemPerc PIDs         record_time
-#> 1 190.5MiB / 1.943GiB 61.4kB / 2.6MB 0B / 0B   9.57%    4 2020-04-09 15:05:29
-#> 2  1012KiB / 1.943GiB    1.79kB / 0B 0B / 0B   0.05%    1 2020-04-09 15:05:29
-#> 3   840KiB / 1.943GiB    2.79kB / 0B 0B / 0B   0.04%    1 2020-04-09 15:05:29
-#> 4 22.75MiB / 1.943GiB   7kB / 1.84kB 0B / 0B   1.14%   11 2020-04-09 15:05:29
-#> 5 481.3MiB / 1.943GiB    30MB / 24MB 0B / 0B  24.19%   12 2020-04-09 15:05:29
-#> 6 41.13MiB / 1.943GiB    24MB / 30MB 0B / 0B   2.07%   54 2020-04-09 15:05:29
+#> 5 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb   1.26%
+#> 6 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167   1.32%
+#>              MemUsage           NetIO BlockIO MemPerc PIDs         record_time
+#> 1 190.5MiB / 1.943GiB  61.5kB / 2.6MB 0B / 0B   9.57%    4 2020-04-09 15:23:24
+#> 2  1012KiB / 1.943GiB     1.86kB / 0B 0B / 0B   0.05%    1 2020-04-09 15:23:24
+#> 3   840KiB / 1.943GiB     2.86kB / 0B 0B / 0B   0.04%    1 2020-04-09 15:23:24
+#> 4 22.75MiB / 1.943GiB 7.14kB / 1.84kB 0B / 0B   1.14%   11 2020-04-09 15:23:24
+#> 5 485.8MiB / 1.943GiB   31.2MB / 25MB 0B / 0B  24.41%   12 2020-04-09 15:23:24
+#> 6 41.37MiB / 1.943GiB   25MB / 31.2MB 0B / 0B   2.08%   54 2020-04-09 15:23:24
 ```
 
 You can return stats for all containers (not just running)
@@ -77,7 +81,7 @@ dockerstats(all = TRUE)
 #> 17 1c32d35562fb              rocketchat
 #> 18 9e9605a015d4                   mongo
 #>                                                                  ID CPUPerc
-#> 1  ea890803de3c6bf430c39b4c9e03ae79f18a01f453fe6794ca2d02882c2f905b   0.18%
+#> 1  ea890803de3c6bf430c39b4c9e03ae79f18a01f453fe6794ca2d02882c2f905b   0.10%
 #> 2  5cef479fec0e5a8ab1b8940364ff4779e4abb2adfd2a9f8dbe1f6f470cb5d9c1   0.00%
 #> 3  658ed62c82edbb32979c2adac7ad75ce65b41bfb7044758e34c79d45804a6f31   0.00%
 #> 4  d74bd9004627efa518ea0fe669434fa6ccd2f86491e39311c9211bfb860839e2   0.00%
@@ -93,27 +97,27 @@ dockerstats(all = TRUE)
 #> 14 6fa3da8d17d736b8881433e9df94abeda889abc6efd935d5d69198529364ef33   0.00%
 #> 15 5b1197c61bfba9614ccea0c69f9ae048e44e85ac0e64f36f240bc9220f962f5d   0.00%
 #> 16 ca323ae39e42d898417b019b2bf7f06feaf877d248cd71b9cad8eebc3f5e1126   0.00%
-#> 17 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb   0.27%
-#> 18 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167   1.60%
-#>               MemUsage          NetIO BlockIO MemPerc PIDs         record_time
-#> 1  190.5MiB / 1.943GiB 61.4kB / 2.6MB 0B / 0B   9.57%    4 2020-04-09 15:05:31
-#> 2              0B / 0B        0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:05:31
-#> 3              0B / 0B        0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:05:31
-#> 4   1012KiB / 1.943GiB    1.79kB / 0B 0B / 0B   0.05%    1 2020-04-09 15:05:31
-#> 5              0B / 0B        0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:05:31
-#> 6              0B / 0B        0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:05:31
-#> 7              0B / 0B        0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:05:31
-#> 8              0B / 0B        0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:05:31
-#> 9              0B / 0B        0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:05:31
-#> 10   840KiB / 1.943GiB    2.79kB / 0B 0B / 0B   0.04%    1 2020-04-09 15:05:31
-#> 11             0B / 0B        0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:05:31
-#> 12             0B / 0B        0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:05:31
-#> 13             0B / 0B        0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:05:31
-#> 14             0B / 0B        0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:05:31
-#> 15             0B / 0B        0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:05:31
-#> 16 22.75MiB / 1.943GiB   7kB / 1.84kB 0B / 0B   1.14%   11 2020-04-09 15:05:31
-#> 17 481.4MiB / 1.943GiB    30MB / 24MB 0B / 0B  24.19%   12 2020-04-09 15:05:31
-#> 18 41.02MiB / 1.943GiB    24MB / 30MB 0B / 0B   2.06%   54 2020-04-09 15:05:31
+#> 17 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb   0.09%
+#> 18 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167   1.01%
+#>               MemUsage           NetIO BlockIO MemPerc PIDs         record_time
+#> 1  190.5MiB / 1.943GiB  61.5kB / 2.6MB 0B / 0B   9.57%    4 2020-04-09 15:23:26
+#> 2              0B / 0B         0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:23:26
+#> 3              0B / 0B         0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:23:26
+#> 4   1012KiB / 1.943GiB     1.86kB / 0B 0B / 0B   0.05%    1 2020-04-09 15:23:26
+#> 5              0B / 0B         0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:23:26
+#> 6              0B / 0B         0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:23:26
+#> 7              0B / 0B         0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:23:26
+#> 8              0B / 0B         0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:23:26
+#> 9              0B / 0B         0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:23:26
+#> 10   840KiB / 1.943GiB     2.86kB / 0B 0B / 0B   0.04%    1 2020-04-09 15:23:26
+#> 11             0B / 0B         0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:23:26
+#> 12             0B / 0B         0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:23:26
+#> 13             0B / 0B         0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:23:26
+#> 14             0B / 0B         0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:23:26
+#> 15             0B / 0B         0B / 0B 0B / 0B   0.00%    0 2020-04-09 15:23:26
+#> 16 22.75MiB / 1.943GiB 7.14kB / 1.84kB 0B / 0B   1.14%   11 2020-04-09 15:23:26
+#> 17   486MiB / 1.943GiB   31.2MB / 25MB 0B / 0B  24.43%   12 2020-04-09 15:23:26
+#> 18 41.37MiB / 1.943GiB   25MB / 31.2MB 0B / 0B   2.08%   54 2020-04-09 15:23:26
 ```
 
 Or from a subset of containers:
@@ -124,11 +128,11 @@ dockerstats("mongo", "proxy")
 #> 1     mongo mongo
 #> 2     proxy proxy
 #>                                                                 ID CPUPerc
-#> 1 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167   1.90%
+#> 1 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167   0.99%
 #> 2 ca323ae39e42d898417b019b2bf7f06feaf877d248cd71b9cad8eebc3f5e1126   0.00%
-#>              MemUsage        NetIO BlockIO MemPerc PIDs         record_time
-#> 1 41.24MiB / 1.943GiB  24MB / 30MB 0B / 0B   2.07%   54 2020-04-09 15:05:33
-#> 2 22.75MiB / 1.943GiB 7kB / 1.84kB 0B / 0B   1.14%   11 2020-04-09 15:05:33
+#>              MemUsage           NetIO BlockIO MemPerc PIDs         record_time
+#> 1 41.37MiB / 1.943GiB   25MB / 31.2MB 0B / 0B   2.08%   54 2020-04-09 15:23:28
+#> 2 22.75MiB / 1.943GiB 7.14kB / 1.84kB 0B / 0B   1.14%   11 2020-04-09 15:23:28
 ```
 
 ### dockerstats\_recurse
