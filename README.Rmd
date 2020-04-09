@@ -71,3 +71,11 @@ dockerstats_recurse(
   }
 )
 ```
+
+## How data are cleaned
+
++ `CPUPerc` and `MemPerc` are stripped from the trailing `%`, and are turned into numeric
+
++ `MEM USAGE / LIMIT` is splitted into two columns, `MemUsage` and `MemLimit
+
++ `NET I/O` and `BLOCK I/O` are splitted into two columns, respectively `NetI` & `NetO`, and `BlockI` & `BlockO`
