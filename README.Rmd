@@ -57,6 +57,46 @@ Or from a subset of containers:
 dockerstats("mongo", "proxy")
 ```
 
+The `extra` param is used to add extra information to the recording, which can be usefull is you want to tag the specific recording. 
+
+For example, here we mimic a connection on the `hexmake` container
+
+```{r echo = FALSE}
+system("docker run --name hexmake --rm -p 2811:80 colinfay/hexmake", wait = FALSE)
+Sys.sleep(5)
+```
+
+```{r eval = FALSE}
+system("docker run --name hexmake --rm -p 2811:80 colinfay/hexmake", wait = FALSE)
+
+```
+
+
+
+```{r, eval = FALSE}
+library(crrri)
+chrome <- Chrome$new(
+  bin = pagedown::find_chrome(), 
+  debug_port = httpuv::randomPort()
+)
+
+client <- chrome$connect(callback = function(client) {
+  client
+})
+
+Page <- client$Page
+Page$navigate(url = "http://localhost:2811")
+
+dockerstats::dockerstats("hexmake", extra = "Connection via chrome")
+
+chrome$close()
+```
+
+```{r}
+system("docker kill hexmake")
+```
+
+
 ### dockerstats_recurse
 
 `dockerstats_recurse()` is a wrapper around `dockerstats()` that runs every `every` seconds, calling the `callback` function everytime a loop is completed. 
@@ -64,7 +104,7 @@ dockerstats("mongo", "proxy")
 By default, the callback is `print`, but you can define your own. For example, this function will run the `dockerstats()` fun every 2 seconds and save it to a file. 
 
 ```{r eval = FALSE}
-dockerstats::dockerstats_recurse(
+dockerstats_recurse(
   "bloomdev",
   callback = function(res){
     print(res)
@@ -72,6 +112,16 @@ dockerstats::dockerstats_recurse(
   }
 )
 ```
+
+As this is a pretty common use-case, a wrapper for this is implemented: 
+
+```{r eval = FALSE}
+dockerstats_recurse(
+  "bloomdev",
+  callback = append_csv("dockerstats.csv")
+)
+```
+
 
 ## How columns are transformed
 
