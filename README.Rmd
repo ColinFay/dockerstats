@@ -92,10 +92,6 @@ dockerstats::dockerstats("hexmake", extra = "Connection via chrome")
 chrome$close()
 ```
 
-```{r}
-system("docker kill hexmake")
-```
-
 
 ### dockerstats_recurse
 
@@ -107,8 +103,17 @@ By default, the callback is `print`, but you can define your own. For example, t
 dockerstats_recurse(
   "hexmake",
   callback = function(res){
-    print(res)
-    write.table(res, "dockerstats.csv", append = TRUE, col.names = FALSE, row.names = FALSE, sep = ",")
+    print(
+      paste("Mem usage: ", res$MemUsage)
+    )
+    write.table(
+      res, 
+      "dockerstats.csv", 
+      append = TRUE, 
+      col.names = FALSE, 
+      row.names = FALSE, 
+      sep = ","
+    )
   }
 )
 ```
@@ -118,7 +123,7 @@ As this is a pretty common use-case, a wrapper for this is implemented:
 ```{r eval = FALSE}
 dockerstats_recurse(
   "hexmake",
-  callback = append_csv("dockerstats.csv")
+  callback = append_csv("dockerstats.csv", print = TRUE)
 )
 ```
 
@@ -131,3 +136,44 @@ dockerstats_recurse(
 
 + `NET I/O` and `BLOCK I/O` are splitted into two columns, respectively `NetI` & `NetO`, and `BlockI` & `BlockO`
 
+## Manupulate columns expressed in bite size
+
+You can call `as_fs_byte()` from the `{fs}` package to manipulate the columns which are expressed in bytes. 
+
+Note that you'll need to install the `{fs}` package (it's not imported by `{dockerstats}`).
+
+```{r}
+dock_stats <- dockerstats()
+dock_stats$MemUsage <- fs::as_fs_bytes(
+  dock_stats$MemUsage
+)
+```
+
+```{r}
+dock_stats[ which.max(dock_stats$MemUsage) , ]
+```
+
+```{r}
+dock_stats[ which.min(dock_stats$MemUsage) , ]
+```
+
+```{r}
+library(ggplot2)
+ggplot(
+  dock_stats, 
+  aes(
+    reorder(Name, MemUsage), 
+    MemUsage)
+) + 
+  geom_col() +
+  scale_y_continuous(labels = scales::comma) + 
+  coord_flip() + 
+  labs(
+    title = "MemUsage of running containers", 
+    y = "MemUsage in bytes"
+  )
+```
+
+```{r}
+system("docker kill hexmake")
+```

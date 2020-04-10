@@ -40,16 +40,16 @@ dockerstats()
 #> 3 9e9605a015d4              mongo
 #>                                                                 ID CPUPerc
 #> 1 7f3b0a08a7aa502657d0d5459f9cd412f0399825f8e15262bf47fe0cd4cc825d    0.00
-#> 2 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb    0.12
-#> 3 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    1.90
+#> 2 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb    1.00
+#> 3 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    2.77
 #>   MemUsage MemLimit MemPerc   NetI   NetO BlockI BlockO PIDs
-#> 1   516KiB 1.943GiB    0.03 5.88kB     0B     0B     0B    1
-#> 2 355.2MiB 1.943GiB   17.85 57.8MB 46.6MB     0B     0B   12
-#> 3 19.09MiB 1.943GiB    0.96 46.5MB 57.7MB     0B     0B   55
+#> 1   516KiB 1.943GiB    0.03 8.23kB     0B     0B     0B    1
+#> 2 350.6MiB 1.943GiB   17.62 99.1MB 80.7MB     0B     0B   12
+#> 3 20.46MiB 1.943GiB    1.03 80.5MB 98.9MB     0B     0B   55
 #>           record_time extra
-#> 1 2020-04-10 10:27:20      
-#> 2 2020-04-10 10:27:20      
-#> 3 2020-04-10 10:27:20
+#> 1 2020-04-10 21:16:51      
+#> 2 2020-04-10 21:16:51      
+#> 3 2020-04-10 21:16:51
 ```
 
 You can return stats for all containers (not just running)
@@ -94,8 +94,8 @@ dockerstats(all = TRUE)
 #> 15 82b75a1bdbe8ce1750210646c02a4dd24c0113c162de2f58d6534c0b25e8b2f0    0.00
 #> 16 5b1197c61bfba9614ccea0c69f9ae048e44e85ac0e64f36f240bc9220f962f5d    0.00
 #> 17 ca323ae39e42d898417b019b2bf7f06feaf877d248cd71b9cad8eebc3f5e1126    0.00
-#> 18 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb    0.37
-#> 19 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    2.20
+#> 18 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb    0.16
+#> 19 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    2.54
 #>    MemUsage MemLimit MemPerc   NetI   NetO BlockI BlockO PIDs
 #> 1        0B       0B    0.00     0B     0B     0B     0B    0
 #> 2        0B       0B    0.00     0B     0B     0B     0B    0
@@ -108,34 +108,34 @@ dockerstats(all = TRUE)
 #> 9        0B       0B    0.00     0B     0B     0B     0B    0
 #> 10       0B       0B    0.00     0B     0B     0B     0B    0
 #> 11       0B       0B    0.00     0B     0B     0B     0B    0
-#> 12   516KiB 1.943GiB    0.03 5.88kB     0B     0B     0B    1
+#> 12   516KiB 1.943GiB    0.03 8.23kB     0B     0B     0B    1
 #> 13       0B       0B    0.00     0B     0B     0B     0B    0
 #> 14       0B       0B    0.00     0B     0B     0B     0B    0
 #> 15       0B       0B    0.00     0B     0B     0B     0B    0
 #> 16       0B       0B    0.00     0B     0B     0B     0B    0
 #> 17       0B       0B    0.00     0B     0B     0B     0B    0
-#> 18 355.2MiB 1.943GiB   17.85 57.8MB 46.6MB     0B     0B   12
-#> 19 19.29MiB 1.943GiB    0.97 46.5MB 57.7MB     0B     0B   55
+#> 18 350.7MiB 1.943GiB   17.63 99.1MB 80.7MB     0B     0B   12
+#> 19 20.45MiB 1.943GiB    1.03 80.5MB 98.9MB     0B     0B   55
 #>            record_time extra
-#> 1  2020-04-10 10:27:22      
-#> 2  2020-04-10 10:27:22      
-#> 3  2020-04-10 10:27:22      
-#> 4  2020-04-10 10:27:22      
-#> 5  2020-04-10 10:27:22      
-#> 6  2020-04-10 10:27:22      
-#> 7  2020-04-10 10:27:22      
-#> 8  2020-04-10 10:27:22      
-#> 9  2020-04-10 10:27:22      
-#> 10 2020-04-10 10:27:22      
-#> 11 2020-04-10 10:27:22      
-#> 12 2020-04-10 10:27:22      
-#> 13 2020-04-10 10:27:22      
-#> 14 2020-04-10 10:27:22      
-#> 15 2020-04-10 10:27:22      
-#> 16 2020-04-10 10:27:22      
-#> 17 2020-04-10 10:27:22      
-#> 18 2020-04-10 10:27:22      
-#> 19 2020-04-10 10:27:22
+#> 1  2020-04-10 21:16:53      
+#> 2  2020-04-10 21:16:53      
+#> 3  2020-04-10 21:16:53      
+#> 4  2020-04-10 21:16:53      
+#> 5  2020-04-10 21:16:53      
+#> 6  2020-04-10 21:16:53      
+#> 7  2020-04-10 21:16:53      
+#> 8  2020-04-10 21:16:53      
+#> 9  2020-04-10 21:16:53      
+#> 10 2020-04-10 21:16:53      
+#> 11 2020-04-10 21:16:53      
+#> 12 2020-04-10 21:16:53      
+#> 13 2020-04-10 21:16:53      
+#> 14 2020-04-10 21:16:53      
+#> 15 2020-04-10 21:16:53      
+#> 16 2020-04-10 21:16:53      
+#> 17 2020-04-10 21:16:53      
+#> 18 2020-04-10 21:16:53      
+#> 19 2020-04-10 21:16:53
 ```
 
 Or from a subset of containers:
@@ -146,14 +146,14 @@ dockerstats("mongo", "proxy")
 #> 1     mongo mongo
 #> 2     proxy proxy
 #>                                                                 ID CPUPerc
-#> 1 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    2.29
+#> 1 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    2.61
 #> 2 ca323ae39e42d898417b019b2bf7f06feaf877d248cd71b9cad8eebc3f5e1126    0.00
 #>   MemUsage MemLimit MemPerc   NetI   NetO BlockI BlockO PIDs
-#> 1 19.41MiB 1.943GiB    0.98 46.5MB 57.7MB     0B     0B   55
+#> 1 20.34MiB 1.943GiB    1.02 80.6MB 98.9MB     0B     0B   55
 #> 2       0B       0B    0.00     0B     0B     0B     0B    0
 #>           record_time extra
-#> 1 2020-04-10 10:27:24      
-#> 2 2020-04-10 10:27:24
+#> 1 2020-04-10 21:16:56      
+#> 2 2020-04-10 21:16:56
 ```
 
 The `extra` param is used to add extra information to the recording,
@@ -185,10 +185,6 @@ dockerstats::dockerstats("hexmake", extra = "Connection via chrome")
 chrome$close()
 ```
 
-``` r
-system("docker kill hexmake")
-```
-
 ### dockerstats\_recurse
 
 `dockerstats_recurse()` is a wrapper around `dockerstats()` that runs
@@ -203,8 +199,17 @@ and save it to a file.
 dockerstats_recurse(
   "hexmake",
   callback = function(res){
-    print(res)
-    write.table(res, "dockerstats.csv", append = TRUE, col.names = FALSE, row.names = FALSE, sep = ",")
+    print(
+      paste("Mem usage: ", res$MemUsage)
+    )
+    write.table(
+      res, 
+      "dockerstats.csv", 
+      append = TRUE, 
+      col.names = FALSE, 
+      row.names = FALSE, 
+      sep = ","
+    )
   }
 )
 ```
@@ -214,7 +219,7 @@ As this is a pretty common use-case, a wrapper for this is implemented:
 ``` r
 dockerstats_recurse(
   "hexmake",
-  callback = append_csv("dockerstats.csv")
+  callback = append_csv("dockerstats.csv", print = TRUE)
 )
 ```
 
@@ -228,3 +233,65 @@ dockerstats_recurse(
 
   - `NET I/O` and `BLOCK I/O` are splitted into two columns,
     respectively `NetI` & `NetO`, and `BlockI` & `BlockO`
+
+## Manupulate columns expressed in bite size
+
+You can call `as_fs_byte()` from the `{fs}` package to manipulate the
+columns which are expressed in bytes.
+
+Note that you’ll need to install the `{fs}` package (it’s not imported
+by `{dockerstats}`).
+
+``` r
+dock_stats <- dockerstats()
+dock_stats$MemUsage <- fs::as_fs_bytes(
+  dock_stats$MemUsage
+)
+```
+
+``` r
+dock_stats[ which.max(dock_stats$MemUsage) , ]
+#>      Container       Name
+#> 3 1c32d35562fb rocketchat
+#>                                                                 ID CPUPerc
+#> 3 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb    0.08
+#>   MemUsage MemLimit MemPerc   NetI   NetO BlockI BlockO PIDs
+#> 3   350.4M 1.943GiB   17.61 99.1MB 80.7MB     0B     0B   12
+#>           record_time extra
+#> 3 2020-04-10 21:17:03
+```
+
+``` r
+dock_stats[ which.min(dock_stats$MemUsage) , ]
+#>      Container               Name
+#> 2 7f3b0a08a7aa stupefied_ishizaka
+#>                                                                 ID CPUPerc
+#> 2 7f3b0a08a7aa502657d0d5459f9cd412f0399825f8e15262bf47fe0cd4cc825d       0
+#>   MemUsage MemLimit MemPerc   NetI NetO BlockI BlockO PIDs         record_time
+#> 2     516K 1.943GiB    0.03 8.23kB   0B     0B     0B    1 2020-04-10 21:17:03
+#>   extra
+#> 2
+```
+
+``` r
+library(ggplot2)
+ggplot(
+  dock_stats, 
+  aes(
+    reorder(Name, MemUsage), 
+    MemUsage)
+) + 
+  geom_col() +
+  scale_y_continuous(labels = scales::comma) + 
+  coord_flip() + 
+  labs(
+    title = "MemUsage of running containers", 
+    y = "MemUsage in bytes"
+  )
+```
+
+<img src="man/figures/README-unnamed-chunk-14-1.png" width="100%" />
+
+``` r
+system("docker kill hexmake")
+```
