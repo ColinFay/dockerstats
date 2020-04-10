@@ -7,6 +7,7 @@
 dockerstats_recurse <- function(
   ...,
   all = FALSE,
+  extra = "",
   every = 1,
   callback = print
 ){
@@ -14,7 +15,7 @@ dockerstats_recurse <- function(
   message("To stop the process, press CTRL + C")
   while(TRUE){
     callback(
-      dockerstats(..., all = all)
+      dockerstats(..., all = all, extra  = extra)
     )
     Sys.sleep(every)
   }

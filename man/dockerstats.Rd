@@ -4,12 +4,14 @@
 \alias{dockerstats}
 \title{Run docker stats}
 \usage{
-dockerstats(..., all = FALSE)
+dockerstats(..., all = FALSE, extra = "")
 }
 \arguments{
 \item{...}{Subset of containers to get stats from. If empty, all running containers are looked for.}
 
 \item{all}{Show all containers (default shows just running).}
+
+\item{extra}{Extra information to add in the "extra" column.}
 }
 \value{
 A data.frame

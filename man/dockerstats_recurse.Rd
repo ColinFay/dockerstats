@@ -4,12 +4,14 @@
 \alias{dockerstats_recurse}
 \title{Call dockerstats() recursively}
 \usage{
-dockerstats_recurse(..., all = FALSE, every = 1, callback = print)
+dockerstats_recurse(..., all = FALSE, extra = "", every = 1, callback = print)
 }
 \arguments{
 \item{...}{Subset of containers to get stats from. If empty, all running containers are looked for.}
 
 \item{all}{Show all containers (default shows just running).}
+
+\item{extra}{Extra information to add in the "extra" column.}
 
 \item{every}{Loop duration}
 

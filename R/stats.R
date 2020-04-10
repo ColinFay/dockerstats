@@ -4,12 +4,14 @@
 #'
 #' @param ... Subset of containers to get stats from. If empty, all running containers are looked for.
 #' @param all Show all containers (default shows just running).
+#' @param extra Extra information to add in the "extra" column.
 #'
 #' @return A data.frame
 #' @export
 dockerstats <- function(
   ...,
-  all = FALSE
+  all = FALSE,
+  extra = ""
 ) {
 
   com <- "docker stats --no-stream --no-trunc"
@@ -58,6 +60,8 @@ dockerstats <- function(
     Sys.time()
   )
 
+  res$extra <- extra
+
   res$CPUPerc <- as.numeric(gsub("(.*)%$", "\\1",res$CPUPerc))
   res$MemPerc <- as.numeric(gsub("(.*)%$", "\\1",res$MemPerc))
   res$MemLimit <- gsub("[^/]*/ *(.*)", "\\1", res$MemUsage)
@@ -66,5 +70,5 @@ dockerstats <- function(
   res$NetI <- gsub("([^/]*) / .*", "\\1", res$NetIO)
   res$BlockO <- gsub("[^/]*/ *(.*)", "\\1", res$BlockIO)
   res$BlockI <- gsub("([^/]*) / .*", "\\1", res$BlockIO)
-  res[, c("Container", "Name", "ID", "CPUPerc", "MemUsage", "MemLimit", "MemPerc", "NetI", "NetO","BlockI", "BlockO", "PIDs", "record_time")]
+  res[, c("Container", "Name", "ID", "CPUPerc", "MemUsage", "MemLimit", "MemPerc", "NetI", "NetO","BlockI", "BlockO", "PIDs", "record_time", "extra")]
 }
