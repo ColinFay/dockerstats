@@ -105,7 +105,7 @@ By default, the callback is `print`, but you can define your own. For example, t
 
 ```{r eval = FALSE}
 dockerstats_recurse(
-  "bloomdev",
+  "hexmake",
   callback = function(res){
     print(res)
     write.table(res, "dockerstats.csv", append = TRUE, col.names = FALSE, row.names = FALSE, sep = ",")
@@ -117,7 +117,7 @@ As this is a pretty common use-case, a wrapper for this is implemented:
 
 ```{r eval = FALSE}
 dockerstats_recurse(
-  "bloomdev",
+  "hexmake",
   callback = append_csv("dockerstats.csv")
 )
 ```

@@ -40,16 +40,16 @@ dockerstats()
 #> 3 9e9605a015d4              mongo
 #>                                                                 ID CPUPerc
 #> 1 7f3b0a08a7aa502657d0d5459f9cd412f0399825f8e15262bf47fe0cd4cc825d    0.00
-#> 2 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb    0.22
-#> 3 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    2.74
+#> 2 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb    0.12
+#> 3 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    1.90
 #>   MemUsage MemLimit MemPerc   NetI   NetO BlockI BlockO PIDs
-#> 1   516KiB 1.943GiB    0.03 5.81kB     0B     0B     0B    1
-#> 2 354.4MiB 1.943GiB   17.81   57MB 45.9MB     0B     0B   12
-#> 3 19.41MiB 1.943GiB    0.98 45.8MB 56.9MB     0B     0B   55
+#> 1   516KiB 1.943GiB    0.03 5.88kB     0B     0B     0B    1
+#> 2 355.2MiB 1.943GiB   17.85 57.8MB 46.6MB     0B     0B   12
+#> 3 19.09MiB 1.943GiB    0.96 46.5MB 57.7MB     0B     0B   55
 #>           record_time extra
-#> 1 2020-04-10 10:14:23      
-#> 2 2020-04-10 10:14:23      
-#> 3 2020-04-10 10:14:23
+#> 1 2020-04-10 10:27:20      
+#> 2 2020-04-10 10:27:20      
+#> 3 2020-04-10 10:27:20
 ```
 
 You can return stats for all containers (not just running)
@@ -94,8 +94,8 @@ dockerstats(all = TRUE)
 #> 15 82b75a1bdbe8ce1750210646c02a4dd24c0113c162de2f58d6534c0b25e8b2f0    0.00
 #> 16 5b1197c61bfba9614ccea0c69f9ae048e44e85ac0e64f36f240bc9220f962f5d    0.00
 #> 17 ca323ae39e42d898417b019b2bf7f06feaf877d248cd71b9cad8eebc3f5e1126    0.00
-#> 18 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb    0.09
-#> 19 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    1.95
+#> 18 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb    0.37
+#> 19 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    2.20
 #>    MemUsage MemLimit MemPerc   NetI   NetO BlockI BlockO PIDs
 #> 1        0B       0B    0.00     0B     0B     0B     0B    0
 #> 2        0B       0B    0.00     0B     0B     0B     0B    0
@@ -108,34 +108,34 @@ dockerstats(all = TRUE)
 #> 9        0B       0B    0.00     0B     0B     0B     0B    0
 #> 10       0B       0B    0.00     0B     0B     0B     0B    0
 #> 11       0B       0B    0.00     0B     0B     0B     0B    0
-#> 12   516KiB 1.943GiB    0.03 5.81kB     0B     0B     0B    1
+#> 12   516KiB 1.943GiB    0.03 5.88kB     0B     0B     0B    1
 #> 13       0B       0B    0.00     0B     0B     0B     0B    0
 #> 14       0B       0B    0.00     0B     0B     0B     0B    0
 #> 15       0B       0B    0.00     0B     0B     0B     0B    0
 #> 16       0B       0B    0.00     0B     0B     0B     0B    0
 #> 17       0B       0B    0.00     0B     0B     0B     0B    0
-#> 18 354.8MiB 1.943GiB   17.83   57MB 45.9MB     0B     0B   12
-#> 19 19.44MiB 1.943GiB    0.98 45.8MB 56.9MB     0B     0B   55
+#> 18 355.2MiB 1.943GiB   17.85 57.8MB 46.6MB     0B     0B   12
+#> 19 19.29MiB 1.943GiB    0.97 46.5MB 57.7MB     0B     0B   55
 #>            record_time extra
-#> 1  2020-04-10 10:14:25      
-#> 2  2020-04-10 10:14:25      
-#> 3  2020-04-10 10:14:25      
-#> 4  2020-04-10 10:14:25      
-#> 5  2020-04-10 10:14:25      
-#> 6  2020-04-10 10:14:25      
-#> 7  2020-04-10 10:14:25      
-#> 8  2020-04-10 10:14:25      
-#> 9  2020-04-10 10:14:25      
-#> 10 2020-04-10 10:14:25      
-#> 11 2020-04-10 10:14:25      
-#> 12 2020-04-10 10:14:25      
-#> 13 2020-04-10 10:14:25      
-#> 14 2020-04-10 10:14:25      
-#> 15 2020-04-10 10:14:25      
-#> 16 2020-04-10 10:14:25      
-#> 17 2020-04-10 10:14:25      
-#> 18 2020-04-10 10:14:25      
-#> 19 2020-04-10 10:14:25
+#> 1  2020-04-10 10:27:22      
+#> 2  2020-04-10 10:27:22      
+#> 3  2020-04-10 10:27:22      
+#> 4  2020-04-10 10:27:22      
+#> 5  2020-04-10 10:27:22      
+#> 6  2020-04-10 10:27:22      
+#> 7  2020-04-10 10:27:22      
+#> 8  2020-04-10 10:27:22      
+#> 9  2020-04-10 10:27:22      
+#> 10 2020-04-10 10:27:22      
+#> 11 2020-04-10 10:27:22      
+#> 12 2020-04-10 10:27:22      
+#> 13 2020-04-10 10:27:22      
+#> 14 2020-04-10 10:27:22      
+#> 15 2020-04-10 10:27:22      
+#> 16 2020-04-10 10:27:22      
+#> 17 2020-04-10 10:27:22      
+#> 18 2020-04-10 10:27:22      
+#> 19 2020-04-10 10:27:22
 ```
 
 Or from a subset of containers:
@@ -146,14 +146,14 @@ dockerstats("mongo", "proxy")
 #> 1     mongo mongo
 #> 2     proxy proxy
 #>                                                                 ID CPUPerc
-#> 1 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    2.13
+#> 1 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    2.29
 #> 2 ca323ae39e42d898417b019b2bf7f06feaf877d248cd71b9cad8eebc3f5e1126    0.00
 #>   MemUsage MemLimit MemPerc   NetI   NetO BlockI BlockO PIDs
-#> 1 19.44MiB 1.943GiB    0.98 45.8MB 56.9MB     0B     0B   55
+#> 1 19.41MiB 1.943GiB    0.98 46.5MB 57.7MB     0B     0B   55
 #> 2       0B       0B    0.00     0B     0B     0B     0B    0
 #>           record_time extra
-#> 1 2020-04-10 10:14:27      
-#> 2 2020-04-10 10:14:27
+#> 1 2020-04-10 10:27:24      
+#> 2 2020-04-10 10:27:24
 ```
 
 The `extra` param is used to add extra information to the recording,
@@ -201,7 +201,7 @@ and save it to a file.
 
 ``` r
 dockerstats_recurse(
-  "bloomdev",
+  "hexmake",
   callback = function(res){
     print(res)
     write.table(res, "dockerstats.csv", append = TRUE, col.names = FALSE, row.names = FALSE, sep = ",")
@@ -213,7 +213,7 @@ As this is a pretty common use-case, a wrapper for this is implemented:
 
 ``` r
 dockerstats_recurse(
-  "bloomdev",
+  "hexmake",
   callback = append_csv("dockerstats.csv")
 )
 ```
