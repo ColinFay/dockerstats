@@ -27,7 +27,7 @@ Note that this package calls `system("docker stats")` so you should be able to d
 You can install the released version of `{dockerstats}` from GitHubwith:
 
 ``` r
-remotes:install_github("ColinFay/dockerstats")
+remotes::install_github("ColinFay/dockerstats")
 ```
 
 ## How to 

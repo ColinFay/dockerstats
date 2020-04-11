@@ -19,7 +19,7 @@ some point.
 You can install the released version of `{dockerstats}` from GitHubwith:
 
 ``` r
-remotes:install_github("ColinFay/dockerstats")
+remotes::install_github("ColinFay/dockerstats")
 ```
 
 ## How to
@@ -35,21 +35,25 @@ By default, `dockerstats()` returns the stats for running containers.
 ``` r
 dockerstats()
 #>      Container               Name
-#> 1 7f3b0a08a7aa stupefied_ishizaka
-#> 2 1c32d35562fb         rocketchat
-#> 3 9e9605a015d4              mongo
+#> 1 b98c686fc095            hexmake
+#> 2 7f3b0a08a7aa stupefied_ishizaka
+#> 3 1c32d35562fb         rocketchat
+#> 4 9e9605a015d4              mongo
 #>                                                                 ID CPUPerc
-#> 1 7f3b0a08a7aa502657d0d5459f9cd412f0399825f8e15262bf47fe0cd4cc825d    0.00
-#> 2 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb    0.13
-#> 3 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    3.16
+#> 1 b98c686fc09546490b927f0bb743ef493cd82414a89842a26c1ca42c8aff8d5b    0.28
+#> 2 7f3b0a08a7aa502657d0d5459f9cd412f0399825f8e15262bf47fe0cd4cc825d    0.00
+#> 3 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb    1.39
+#> 4 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    2.23
 #>   MemUsage MemLimit MemPerc   NetI   NetO BlockI BlockO PIDs
-#> 1   516KiB 1.943GiB    0.03 8.23kB     0B     0B     0B    1
-#> 2 351.4MiB 1.943GiB   17.66 99.4MB 80.9MB     0B     0B   12
-#> 3 20.31MiB 1.943GiB    1.02 80.8MB 99.2MB     0B     0B   55
+#> 1 174.8MiB 1.943GiB    8.78 29.7kB  566kB     0B     0B    4
+#> 2   516KiB 1.943GiB    0.03 9.59kB     0B     0B     0B    1
+#> 3 347.3MiB 1.943GiB   17.46  121MB 98.3MB     0B     0B   12
+#> 4 21.04MiB 1.943GiB    1.06 98.1MB  120MB     0B     0B   55
 #>           record_time extra
-#> 1 2020-04-10 21:21:30      
-#> 2 2020-04-10 21:21:30      
-#> 3 2020-04-10 21:21:30
+#> 1 2020-04-11 23:37:57      
+#> 2 2020-04-11 23:37:57      
+#> 3 2020-04-11 23:37:57      
+#> 4 2020-04-11 23:37:57
 ```
 
 You can return stats for all containers (not just running)
@@ -57,47 +61,53 @@ You can return stats for all containers (not just running)
 ``` r
 dockerstats(all = TRUE)
 #>       Container                    Name
-#> 1  bdac8ae662bd           rocketchating
-#> 2  ad640c7420ea     compassionate_ellis
-#> 3  ea890803de3c           sleepy_colden
-#> 4  5cef479fec0e           boring_swartz
-#> 5  658ed62c82ed            elegant_pare
-#> 6  d74bd9004627          exciting_yalow
-#> 7  f5cb6430e103      gallant_lichterman
-#> 8  f8c3f4b47931 heuristic_proskuriakova
-#> 9  1a8588105357          pedantic_booth
-#> 10 7c16ac79e629           focused_chaum
-#> 11 e2f0dc1dab14           boring_liskov
-#> 12 7f3b0a08a7aa      stupefied_ishizaka
-#> 13 194f087c356e       boring_mcclintock
-#> 14 7f575179ad72       flamboyant_sammet
-#> 15 82b75a1bdbe8                    jack
-#> 16 5b1197c61bfb                   login
-#> 17 ca323ae39e42                   proxy
-#> 18 1c32d35562fb              rocketchat
-#> 19 9e9605a015d4                   mongo
+#> 1  b98c686fc095                 hexmake
+#> 2  dbcf81982870   mystifying_hofstadter
+#> 3  841be05ca06f           nice_einstein
+#> 4  bdac8ae662bd           rocketchating
+#> 5  ad640c7420ea     compassionate_ellis
+#> 6  ea890803de3c           sleepy_colden
+#> 7  5cef479fec0e           boring_swartz
+#> 8  658ed62c82ed            elegant_pare
+#> 9  d74bd9004627          exciting_yalow
+#> 10 f5cb6430e103      gallant_lichterman
+#> 11 f8c3f4b47931 heuristic_proskuriakova
+#> 12 1a8588105357          pedantic_booth
+#> 13 7c16ac79e629           focused_chaum
+#> 14 e2f0dc1dab14           boring_liskov
+#> 15 7f3b0a08a7aa      stupefied_ishizaka
+#> 16 194f087c356e       boring_mcclintock
+#> 17 7f575179ad72       flamboyant_sammet
+#> 18 82b75a1bdbe8                    jack
+#> 19 5b1197c61bfb                   login
+#> 20 ca323ae39e42                   proxy
+#> 21 1c32d35562fb              rocketchat
+#> 22 9e9605a015d4                   mongo
 #>                                                                  ID CPUPerc
-#> 1  bdac8ae662bd5c4b647fad89b73c95a66f84406a07d9e1c4e0db5a0eff33ad6b    0.00
-#> 2  ad640c7420ea021453866e974666b7337885220238dadd3b717fa42bc51f3b26    0.00
-#> 3  ea890803de3c6bf430c39b4c9e03ae79f18a01f453fe6794ca2d02882c2f905b    0.00
-#> 4  5cef479fec0e5a8ab1b8940364ff4779e4abb2adfd2a9f8dbe1f6f470cb5d9c1    0.00
-#> 5  658ed62c82edbb32979c2adac7ad75ce65b41bfb7044758e34c79d45804a6f31    0.00
-#> 6  d74bd9004627efa518ea0fe669434fa6ccd2f86491e39311c9211bfb860839e2    0.00
-#> 7  f5cb6430e103fc3c0e57942e8a96f84ffc55f4006cd089e1be5a82bfec808935    0.00
-#> 8  f8c3f4b4793146069b336db2ec8d96732920eac759991138ba0695d05a8e2de6    0.00
-#> 9  1a8588105357e77d1e284615d7461a259c41f654c5db66e3b8964fa5395a4d65    0.00
-#> 10 7c16ac79e629e7d74137840876561733614aea265c4876c360160cd258e85d5f    0.00
-#> 11 e2f0dc1dab146b1b0418f3cd620fdaa0ba40645aa822b10261e8ba221499aaa2    0.00
-#> 12 7f3b0a08a7aa502657d0d5459f9cd412f0399825f8e15262bf47fe0cd4cc825d    0.00
-#> 13 194f087c356e992778f8ddac61eeb4e4e107caee43af8c1d8072e6aad425f97a    0.00
-#> 14 7f575179ad72079840887cd52ad0fe5a97313d4864414e35660c8740265351ff    0.00
-#> 15 82b75a1bdbe8ce1750210646c02a4dd24c0113c162de2f58d6534c0b25e8b2f0    0.00
-#> 16 5b1197c61bfba9614ccea0c69f9ae048e44e85ac0e64f36f240bc9220f962f5d    0.00
-#> 17 ca323ae39e42d898417b019b2bf7f06feaf877d248cd71b9cad8eebc3f5e1126    0.00
-#> 18 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb    2.54
-#> 19 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    3.67
+#> 1  b98c686fc09546490b927f0bb743ef493cd82414a89842a26c1ca42c8aff8d5b    0.13
+#> 2  dbcf81982870c42b73534e3e1e41ad5871c0dcb3d4f9b4b8a97b71f4d1bd5eb2    0.00
+#> 3  841be05ca06f9b96fce842e426fc2d23a5ce968c898bd401ddcd7057ae790ac7    0.00
+#> 4  bdac8ae662bd5c4b647fad89b73c95a66f84406a07d9e1c4e0db5a0eff33ad6b    0.00
+#> 5  ad640c7420ea021453866e974666b7337885220238dadd3b717fa42bc51f3b26    0.00
+#> 6  ea890803de3c6bf430c39b4c9e03ae79f18a01f453fe6794ca2d02882c2f905b    0.00
+#> 7  5cef479fec0e5a8ab1b8940364ff4779e4abb2adfd2a9f8dbe1f6f470cb5d9c1    0.00
+#> 8  658ed62c82edbb32979c2adac7ad75ce65b41bfb7044758e34c79d45804a6f31    0.00
+#> 9  d74bd9004627efa518ea0fe669434fa6ccd2f86491e39311c9211bfb860839e2    0.00
+#> 10 f5cb6430e103fc3c0e57942e8a96f84ffc55f4006cd089e1be5a82bfec808935    0.00
+#> 11 f8c3f4b4793146069b336db2ec8d96732920eac759991138ba0695d05a8e2de6    0.00
+#> 12 1a8588105357e77d1e284615d7461a259c41f654c5db66e3b8964fa5395a4d65    0.00
+#> 13 7c16ac79e629e7d74137840876561733614aea265c4876c360160cd258e85d5f    0.00
+#> 14 e2f0dc1dab146b1b0418f3cd620fdaa0ba40645aa822b10261e8ba221499aaa2    0.00
+#> 15 7f3b0a08a7aa502657d0d5459f9cd412f0399825f8e15262bf47fe0cd4cc825d    0.00
+#> 16 194f087c356e992778f8ddac61eeb4e4e107caee43af8c1d8072e6aad425f97a    0.00
+#> 17 7f575179ad72079840887cd52ad0fe5a97313d4864414e35660c8740265351ff    0.00
+#> 18 82b75a1bdbe8ce1750210646c02a4dd24c0113c162de2f58d6534c0b25e8b2f0    0.00
+#> 19 5b1197c61bfba9614ccea0c69f9ae048e44e85ac0e64f36f240bc9220f962f5d    0.00
+#> 20 ca323ae39e42d898417b019b2bf7f06feaf877d248cd71b9cad8eebc3f5e1126    0.00
+#> 21 1c32d35562fbd442c75e132e4075f379fc2097293a1ab0b5361debf2d4ab74cb    0.12
+#> 22 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    2.15
 #>    MemUsage MemLimit MemPerc   NetI   NetO BlockI BlockO PIDs
-#> 1        0B       0B    0.00     0B     0B     0B     0B    0
+#> 1  174.8MiB 1.943GiB    8.78 29.7kB  566kB     0B     0B    4
 #> 2        0B       0B    0.00     0B     0B     0B     0B    0
 #> 3        0B       0B    0.00     0B     0B     0B     0B    0
 #> 4        0B       0B    0.00     0B     0B     0B     0B    0
@@ -108,34 +118,40 @@ dockerstats(all = TRUE)
 #> 9        0B       0B    0.00     0B     0B     0B     0B    0
 #> 10       0B       0B    0.00     0B     0B     0B     0B    0
 #> 11       0B       0B    0.00     0B     0B     0B     0B    0
-#> 12   516KiB 1.943GiB    0.03 8.23kB     0B     0B     0B    1
+#> 12       0B       0B    0.00     0B     0B     0B     0B    0
 #> 13       0B       0B    0.00     0B     0B     0B     0B    0
 #> 14       0B       0B    0.00     0B     0B     0B     0B    0
-#> 15       0B       0B    0.00     0B     0B     0B     0B    0
+#> 15   516KiB 1.943GiB    0.03 9.59kB     0B     0B     0B    1
 #> 16       0B       0B    0.00     0B     0B     0B     0B    0
 #> 17       0B       0B    0.00     0B     0B     0B     0B    0
-#> 18 351.7MiB 1.943GiB   17.67 99.4MB 80.9MB     0B     0B   12
-#> 19 20.34MiB 1.943GiB    1.02 80.8MB 99.2MB     0B     0B   55
+#> 18       0B       0B    0.00     0B     0B     0B     0B    0
+#> 19       0B       0B    0.00     0B     0B     0B     0B    0
+#> 20       0B       0B    0.00     0B     0B     0B     0B    0
+#> 21 347.4MiB 1.943GiB   17.46  121MB 98.3MB     0B     0B   12
+#> 22 21.19MiB 1.943GiB    1.06 98.2MB  120MB     0B     0B   55
 #>            record_time extra
-#> 1  2020-04-10 21:21:32      
-#> 2  2020-04-10 21:21:32      
-#> 3  2020-04-10 21:21:32      
-#> 4  2020-04-10 21:21:32      
-#> 5  2020-04-10 21:21:32      
-#> 6  2020-04-10 21:21:32      
-#> 7  2020-04-10 21:21:32      
-#> 8  2020-04-10 21:21:32      
-#> 9  2020-04-10 21:21:32      
-#> 10 2020-04-10 21:21:32      
-#> 11 2020-04-10 21:21:32      
-#> 12 2020-04-10 21:21:32      
-#> 13 2020-04-10 21:21:32      
-#> 14 2020-04-10 21:21:32      
-#> 15 2020-04-10 21:21:32      
-#> 16 2020-04-10 21:21:32      
-#> 17 2020-04-10 21:21:32      
-#> 18 2020-04-10 21:21:32      
-#> 19 2020-04-10 21:21:32
+#> 1  2020-04-11 23:37:59      
+#> 2  2020-04-11 23:37:59      
+#> 3  2020-04-11 23:37:59      
+#> 4  2020-04-11 23:37:59      
+#> 5  2020-04-11 23:37:59      
+#> 6  2020-04-11 23:37:59      
+#> 7  2020-04-11 23:37:59      
+#> 8  2020-04-11 23:37:59      
+#> 9  2020-04-11 23:37:59      
+#> 10 2020-04-11 23:37:59      
+#> 11 2020-04-11 23:37:59      
+#> 12 2020-04-11 23:37:59      
+#> 13 2020-04-11 23:37:59      
+#> 14 2020-04-11 23:37:59      
+#> 15 2020-04-11 23:37:59      
+#> 16 2020-04-11 23:37:59      
+#> 17 2020-04-11 23:37:59      
+#> 18 2020-04-11 23:37:59      
+#> 19 2020-04-11 23:37:59      
+#> 20 2020-04-11 23:37:59      
+#> 21 2020-04-11 23:37:59      
+#> 22 2020-04-11 23:37:59
 ```
 
 Or from a subset of containers:
@@ -146,14 +162,14 @@ dockerstats("mongo", "proxy")
 #> 1     mongo mongo
 #> 2     proxy proxy
 #>                                                                 ID CPUPerc
-#> 1 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    3.18
+#> 1 9e9605a015d4378283947ed16f547a8272039ec853b4962010203204d2c05167    2.74
 #> 2 ca323ae39e42d898417b019b2bf7f06feaf877d248cd71b9cad8eebc3f5e1126    0.00
-#>   MemUsage MemLimit MemPerc   NetI   NetO BlockI BlockO PIDs
-#> 1 20.36MiB 1.943GiB    1.02 80.8MB 99.2MB     0B     0B   55
-#> 2       0B       0B    0.00     0B     0B     0B     0B    0
-#>           record_time extra
-#> 1 2020-04-10 21:21:34      
-#> 2 2020-04-10 21:21:34
+#>   MemUsage MemLimit MemPerc   NetI  NetO BlockI BlockO PIDs         record_time
+#> 1 21.24MiB 1.943GiB    1.07 98.2MB 120MB     0B     0B   55 2020-04-11 23:38:01
+#> 2       0B       0B    0.00     0B    0B     0B     0B    0 2020-04-11 23:38:01
+#>   extra
+#> 1      
+#> 2
 ```
 
 The `extra` param is used to add extra information to the recording,
@@ -246,13 +262,13 @@ by `{dockerstats}`).
 dock_stats <- dockerstats()
 
 sort(dock_stats$MemUsage)
-#> [1] "111MiB"   "20.36MiB" "351.3MiB" "516KiB"
+#> [1] "174.8MiB" "21.34MiB" "347.3MiB" "516KiB"
 
 dock_stats$MemUsage <- fs::as_fs_bytes(
   dock_stats$MemUsage
 )
 sort(dock_stats$MemUsage)
-#> 516K  20.4M 111M 351.3M
+#> 516K  21.3M 174.8M 347.3M
 ```
 
 ``` r
