@@ -81,13 +81,12 @@ chrome <- Chrome$new(
 )
 
 client <- chrome$connect(callback = function(client) {
-  client
+  Page <- client$Page
+  Page$navigate(url = "http://localhost:2811")
+  print({
+    dockerstats::dockerstats("hexmake", extra = "Connection via chrome")
+  })
 })
-
-Page <- client$Page
-Page$navigate(url = "http://localhost:2811")
-
-dockerstats::dockerstats("hexmake", extra = "Connection via chrome")
 
 chrome$close()
 ```
@@ -162,7 +161,7 @@ ggplot(
     MemUsage)
 ) + 
   geom_col() +
-  scale_y_continuous(labels = scales::comma) + 
+  scale_y_continuous(labels = scales::label_bytes()) + 
   coord_flip() + 
   labs(
     title = "MemUsage of running containers", 
