@@ -3,3 +3,4 @@
 export(append_csv)
 export(dockerstats)
 export(dockerstats_recurse)
+export(read_appended_csv)

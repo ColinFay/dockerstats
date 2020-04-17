@@ -22,3 +22,23 @@ append_csv <- function(
     )
   }
 }
+
+#' Read the csv from created by `append_csv()`
+#'
+#' This function is a wrapper around `read.csv()`.
+#' Please use that function for more control over the
+#' reading.
+#'
+#' @inheritParams utils::read.table
+#'
+#' @export
+read_appended_csv <- function(
+  file
+){
+  read.csv(
+    file,
+    header = FALSE,
+    col.names = docker_stats_names,
+    stringsAsFactors = FALSE
+  )
+}

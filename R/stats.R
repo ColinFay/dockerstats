@@ -70,5 +70,23 @@ dockerstats <- function(
   res$NetI <- gsub("([^/]*) / .*", "\\1", res$NetIO)
   res$BlockO <- gsub("[^/]*/ *(.*)", "\\1", res$BlockIO)
   res$BlockI <- gsub("([^/]*) / .*", "\\1", res$BlockIO)
-  res[, c("Container", "Name", "ID", "CPUPerc", "MemUsage", "MemLimit", "MemPerc", "NetI", "NetO","BlockI", "BlockO", "PIDs", "record_time", "extra")]
+  res[, docker_stats_names]
 }
+
+#' Names of the outputs
+docker_stats_names <- c(
+  "Container",
+  "Name",
+  "ID",
+  "CPUPerc",
+  "MemUsage",
+  "MemLimit",
+  "MemPerc",
+  "NetI",
+  "NetO",
+  "BlockI",
+  "BlockO",
+  "PIDs",
+  "record_time",
+  "extra"
+)
