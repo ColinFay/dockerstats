@@ -4,17 +4,43 @@
 #'
 #' @param ... Subset of containers to get stats from. If empty, all running containers are looked for.
 #' @param all Show all containers (default shows just running).
+#' @param notrunc Whether or not to truncate output.
 #' @param extra Extra information to add in the "extra" column.
+#'
+#' @details
+#'
+#' Output description:
+#'
+#' + CONTAINER ID and Name	the ID and name of the container
+#' + CPU % and MEM %	the percentage of the host’s CPU and memory the container is using
+#' + MEM USAGE / LIMIT	the total memory the container is using, and the total amount of memory it is allowed to use
+#' + NET I/O	The amount of data the container has sent and received over its network interface
+#' + BLOCK I/O	The amount of data the container has read to and written from block devices on the host
+#' + PIDs	the number of processes or threads the container has created
+#'
+#' From <https://docs.docker.com/engine/reference/commandline/stats/>
+#'
+#' @note
+#'
+#' MemPerc and PIDs are not available on Windows
 #'
 #' @return A data.frame
 #' @export
 dockerstats <- function(
   ...,
   all = FALSE,
+  notrunc = FALSE,
   extra = ""
 ) {
 
-  com <- "docker stats --no-stream --no-trunc"
+  com <- "docker stats --no-stream"
+  if (notrunc){
+    com <- sprintf(
+      "%s %s",
+      com,
+      "--no-trunc"
+    )
+  }
   if (all){
     com <- sprintf(
       "%s %s",
