@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{read_appended_csv}
 \alias{read_appended_csv}
-\title{Read the csv from created by `append_csv()`}
+\title{Read the csv from created by \code{append_csv()}}
 \usage{
 read_appended_csv(file)
 }
@@ -29,7 +29,7 @@ read_appended_csv(file)
   }
 }
 \description{
-This function is a wrapper around `read.csv()`.
+This function is a wrapper around \code{read.csv()}.
 Please use that function for more control over the
 reading.
 }

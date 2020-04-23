@@ -4,12 +4,14 @@
 \alias{dockerstats}
 \title{Run docker stats}
 \usage{
-dockerstats(..., all = FALSE, extra = "")
+dockerstats(..., all = FALSE, notrunc = FALSE, extra = "")
 }
 \arguments{
 \item{...}{Subset of containers to get stats from. If empty, all running containers are looked for.}
 
 \item{all}{Show all containers (default shows just running).}
+
+\item{notrunc}{Whether or not to truncate output.}
 
 \item{extra}{Extra information to add in the "extra" column.}
 }
@@ -18,4 +20,20 @@ A data.frame
 }
 \description{
 Run docker stats and returns a data.frame
+}
+\details{
+Output description:
+\itemize{
+\item CONTAINER ID and Name	the ID and name of the container
+\item CPU \% and MEM \%	the percentage of the host’s CPU and memory the container is using
+\item MEM USAGE / LIMIT	the total memory the container is using, and the total amount of memory it is allowed to use
+\item NET I/O	The amount of data the container has sent and received over its network interface
+\item BLOCK I/O	The amount of data the container has read to and written from block devices on the host
+\item PIDs	the number of processes or threads the container has created
+}
+
+From \url{https://docs.docker.com/engine/reference/commandline/stats/}
+}
+\note{
+MemPerc and PIDs are not available on Windows
 }
