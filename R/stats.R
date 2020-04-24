@@ -62,12 +62,22 @@ dockerstats <- function(
     com,
     '--format "{{.Container}},{{.Name}},{{.ID}},{{.CPUPerc}},{{.MemUsage}},{{.NetIO}},{{.BlockIO}},{{.MemPerc}},{{.PIDs}}"'
   )
+
+  output <- system(
+    com,
+    intern = TRUE
+  )
+
+  if (length(output) == 0){
+    cat("Unable to find any container running.\n")
+    return(
+      invisible(FALSE)
+    )
+  }
+
   res  <- read.delim(
     stringsAsFactors = FALSE,
-    text =  system(
-      com,
-      intern = TRUE
-    ),
+    text =  ,
     header = FALSE,
     sep = ","
   )
