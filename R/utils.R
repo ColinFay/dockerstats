@@ -35,10 +35,14 @@ append_csv <- function(
 read_appended_csv <- function(
   file
 ){
-  read.csv(
+  res <- read.csv(
     file,
     header = FALSE,
     col.names = docker_stats_names,
     stringsAsFactors = FALSE
   )
+  res$record_time <- as.POSIXct(
+    res$record_time
+  )
+  res
 }
