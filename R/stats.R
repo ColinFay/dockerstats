@@ -71,42 +71,64 @@ dockerstats <- function(
   if (length(output) == 0){
     cat("Unable to find any container running.\n")
     return(
-      invisible(FALSE)
+      structure(
+        list(
+          character(0),
+          character(0),
+          character(0),
+          character(0),
+          character(0),
+          character(0),
+          character(0),
+          character(0),
+          character(0),
+          character(0),
+          character(0),
+          character(0),
+          character(0),
+          character(0)
+        ),
+        .Names = docker_stats_names,
+        row.names = integer(0),
+        class = "data.frame"
+      )
     )
+  } else {
+    res  <- read.delim(
+      stringsAsFactors = FALSE,
+      text =  output,
+      header = FALSE,
+      sep = ","
+    )
+    names(res) <- c(
+      "Container",
+      "Name",
+      "ID",
+      "CPUPerc",
+      "MemUsage",
+      "NetIO",
+      "BlockIO",
+      "MemPerc",
+      "PIDs"
+    )
+    res$record_time <- as.character(
+      Sys.time()
+    )
+
+    res$extra <- extra
+
+    res$CPUPerc <- as.numeric(gsub("(.*)%$", "\\1",res$CPUPerc))
+    res$MemPerc <- as.numeric(gsub("(.*)%$", "\\1",res$MemPerc))
+    res$MemLimit <- gsub("[^/]*/ *(.*)", "\\1", res$MemUsage)
+    res$MemUsage <- gsub("([^/]*) / .*", "\\1", res$MemUsage)
+    res$NetO <- gsub("[^/]*/ *(.*)", "\\1", res$NetIO)
+    res$NetI <- gsub("([^/]*) / .*", "\\1", res$NetIO)
+    res$BlockO <- gsub("[^/]*/ *(.*)", "\\1", res$BlockIO)
+    res$BlockI <- gsub("([^/]*) / .*", "\\1", res$BlockIO)
+    res[, docker_stats_names]
   }
 
-  res  <- read.delim(
-    stringsAsFactors = FALSE,
-    text =  ,
-    header = FALSE,
-    sep = ","
-  )
-  names(res) <- c(
-    "Container",
-    "Name",
-    "ID",
-    "CPUPerc",
-    "MemUsage",
-    "NetIO",
-    "BlockIO",
-    "MemPerc",
-    "PIDs"
-  )
-  res$record_time <- as.character(
-    Sys.time()
-  )
 
-  res$extra <- extra
-
-  res$CPUPerc <- as.numeric(gsub("(.*)%$", "\\1",res$CPUPerc))
-  res$MemPerc <- as.numeric(gsub("(.*)%$", "\\1",res$MemPerc))
-  res$MemLimit <- gsub("[^/]*/ *(.*)", "\\1", res$MemUsage)
-  res$MemUsage <- gsub("([^/]*) / .*", "\\1", res$MemUsage)
-  res$NetO <- gsub("[^/]*/ *(.*)", "\\1", res$NetIO)
-  res$NetI <- gsub("([^/]*) / .*", "\\1", res$NetIO)
-  res$BlockO <- gsub("[^/]*/ *(.*)", "\\1", res$BlockIO)
-  res$BlockI <- gsub("([^/]*) / .*", "\\1", res$BlockIO)
-  res[, docker_stats_names]
 }
 
 #' Names of the outputs
