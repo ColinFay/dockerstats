@@ -126,6 +126,26 @@ dockerstats_recurse(
 )
 ```
 
+Kill the container once done
+
+```{r}
+system("docker kill hexmake")
+```
+
+
+## Byte conversions
+
+To handle the `MemUsage` columns, expressed as `byte`, `{dockerstats}` provides a series of functions to convert to byte, kib, mib or gib. 
+
+The unit is kept in `attr("units")` of the result
+
+```{r}
+dock_stats <- dockerstats()
+dock_stats$MemUsag
+# Convert to kib
+to_kib(dock_stats$MemUsag)
+```
+
 
 ## How columns are transformed
 
@@ -139,17 +159,10 @@ dockerstats_recurse(
 
 You can call `as_fs_byte()` from the `{fs}` package to manipulate the columns which are expressed in bytes. 
 
-Note that you'll need to install the `{fs}` package (it's not imported by `{dockerstats}`).
-
 ```{r}
 dock_stats <- dockerstats()
 
-sort(dock_stats$MemUsage)
-
-dock_stats$MemUsage <- fs::as_fs_bytes(
-  dock_stats$MemUsage
-)
-sort(dock_stats$MemUsage)
+dock_stats$MemUsage <- to_kib(dock_stats$MemUsag)
 ```
 
 ```{r}
@@ -158,17 +171,15 @@ ggplot(
   dock_stats, 
   aes(
     reorder(Name, MemUsage), 
-    MemUsage)
+    MemUsage
+  )
 ) + 
   geom_col() +
-  scale_y_continuous(labels = scales::label_bytes()) + 
+  scale_y_continuous(labels = scales::label_bytes(units = "kiB")) + 
   coord_flip() + 
   labs(
     title = "MemUsage of running containers", 
-    y = "MemUsage in bytes"
+    y = "MemUsage in kiB", 
+    x = "Containers"
   )
-```
-
-```{r}
-system("docker kill hexmake")
 ```

@@ -8,6 +8,14 @@
 \description{
 A wrapper around docker stats..
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/ColinFay/dockerstats}
+  \item Report bugs at \url{https://github.com/ColinFay/dockerstats/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Colin Fay \email{contact@colinfay.me} (\href{https://orcid.org/0000-0001-7343-1846}{ORCID})
 

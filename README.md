@@ -36,17 +36,17 @@ By default, `dockerstats()` returns the stats for running containers.
 ``` r
 dockerstats()
 #>      Container            Name           ID CPUPerc MemUsage MemLimit MemPerc
-#> 1 144087c5fbaf         couchdb 144087c5fbaf    4.83 54.33MiB 12.69GiB    0.42
-#> 2 5017ccedf5d5 strange_maxwell 5017ccedf5d5    0.13 12.09MiB 12.69GiB    0.09
+#> 1 144087c5fbaf         couchdb 144087c5fbaf    6.85 55.75MiB 12.69GiB    0.43
+#> 2 5017ccedf5d5 strange_maxwell 5017ccedf5d5    0.10 12.09MiB 12.69GiB    0.09
 #> 3 ca323ae39e42           proxy ca323ae39e42    0.00 21.75MiB 12.69GiB    0.17
-#> 4 1c32d35562fb      rocketchat 1c32d35562fb    1.03 483.8MiB 12.69GiB    3.72
-#> 5 9e9605a015d4           mongo 9e9605a015d4    2.20 42.73MiB 12.69GiB    0.33
+#> 4 1c32d35562fb      rocketchat 1c32d35562fb    0.16 477.8MiB 12.69GiB    3.68
+#> 5 9e9605a015d4           mongo 9e9605a015d4    2.23 42.73MiB 12.69GiB    0.33
 #>     NetI   NetO BlockI BlockO PIDs         record_time extra
-#> 1  149kB  203kB     0B     0B   30 2020-04-23 21:59:02      
-#> 2 2.68MB 3.36MB     0B     0B    6 2020-04-23 21:59:02      
-#> 3 9.04kB 1.84kB     0B     0B   11 2020-04-23 21:59:02      
-#> 4   87MB 70.3MB     0B     0B   12 2020-04-23 21:59:02      
-#> 5 70.2MB 86.8MB     0B     0B   55 2020-04-23 21:59:02
+#> 1  150kB  203kB     0B     0B   30 2020-04-24 11:59:21      
+#> 2 2.68MB 3.36MB     0B     0B    6 2020-04-24 11:59:21      
+#> 3 9.73kB 1.84kB     0B     0B   11 2020-04-24 11:59:21      
+#> 4  107MB 86.8MB     0B     0B   12 2020-04-24 11:59:21      
+#> 5 86.6MB  107MB     0B     0B   55 2020-04-24 11:59:21
 ```
 
 You can return stats for all containers (not just running)
@@ -54,8 +54,8 @@ You can return stats for all containers (not just running)
 ``` r
 dockerstats(all = TRUE)
 #>       Container                    Name           ID CPUPerc MemUsage MemLimit
-#> 1  144087c5fbaf                 couchdb 144087c5fbaf    1.84 54.33MiB 12.69GiB
-#> 2  5017ccedf5d5         strange_maxwell 5017ccedf5d5    0.08 12.09MiB 12.69GiB
+#> 1  144087c5fbaf                 couchdb 144087c5fbaf    1.61 55.75MiB 12.69GiB
+#> 2  5017ccedf5d5         strange_maxwell 5017ccedf5d5    0.14 12.09MiB 12.69GiB
 #> 3  a25f4ee0fb8d         elastic_khayyam a25f4ee0fb8d    0.00       0B       0B
 #> 4  04e001a4b1db       sad_proskuriakova 04e001a4b1db    0.00       0B       0B
 #> 5  3aa1aea8186e         elegant_dewdney 3aa1aea8186e    0.00       0B       0B
@@ -90,47 +90,47 @@ dockerstats(all = TRUE)
 #> 34 82b75a1bdbe8                    jack 82b75a1bdbe8    0.00       0B       0B
 #> 35 5b1197c61bfb                   login 5b1197c61bfb    0.00       0B       0B
 #> 36 ca323ae39e42                   proxy ca323ae39e42    0.00 21.75MiB 12.69GiB
-#> 37 1c32d35562fb              rocketchat 1c32d35562fb    0.93 483.9MiB 12.69GiB
-#> 38 9e9605a015d4                   mongo 9e9605a015d4    2.16 42.69MiB 12.69GiB
+#> 37 1c32d35562fb              rocketchat 1c32d35562fb    0.28   477MiB 12.69GiB
+#> 38 9e9605a015d4                   mongo 9e9605a015d4    1.67 42.73MiB 12.69GiB
 #>    MemPerc   NetI   NetO BlockI BlockO PIDs         record_time extra
-#> 1     0.42  149kB  203kB     0B     0B   30 2020-04-23 21:59:04      
-#> 2     0.09 2.68MB 3.36MB     0B     0B    6 2020-04-23 21:59:04      
-#> 3     0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 4     0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 5     0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 6     0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 7     0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 8     0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 9     0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 10    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 11    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 12    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 13    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 14    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 15    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 16    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 17    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 18    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 19    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 20    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 21    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 22    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 23    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 24    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 25    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 26    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 27    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 28    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 29    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 30    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 31    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 32    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 33    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 34    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 35    0.00     0B     0B     0B     0B    0 2020-04-23 21:59:04      
-#> 36    0.17 9.04kB 1.84kB     0B     0B   11 2020-04-23 21:59:04      
-#> 37    3.72   87MB 70.3MB     0B     0B   12 2020-04-23 21:59:04      
-#> 38    0.33 70.2MB 86.8MB     0B     0B   55 2020-04-23 21:59:04
+#> 1     0.43  150kB  203kB     0B     0B   30 2020-04-24 11:59:23      
+#> 2     0.09 2.68MB 3.36MB     0B     0B    6 2020-04-24 11:59:23      
+#> 3     0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 4     0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 5     0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 6     0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 7     0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 8     0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 9     0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 10    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 11    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 12    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 13    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 14    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 15    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 16    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 17    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 18    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 19    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 20    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 21    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 22    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 23    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 24    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 25    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 26    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 27    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 28    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 29    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 30    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 31    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 32    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 33    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 34    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 35    0.00     0B     0B     0B     0B    0 2020-04-24 11:59:23      
+#> 36    0.17 9.73kB 1.84kB     0B     0B   11 2020-04-24 11:59:23      
+#> 37    3.67  107MB 86.8MB     0B     0B   12 2020-04-24 11:59:23      
+#> 38    0.33 86.6MB  107MB     0B     0B   55 2020-04-24 11:59:23
 ```
 
 Or from a subset of containers:
@@ -138,11 +138,11 @@ Or from a subset of containers:
 ``` r
 dockerstats("mongo", "proxy")
 #>   Container  Name           ID CPUPerc MemUsage MemLimit MemPerc   NetI   NetO
-#> 1     mongo mongo 9e9605a015d4    1.45  42.8MiB 12.69GiB    0.33 70.2MB 86.8MB
-#> 2     proxy proxy ca323ae39e42    0.00 21.75MiB 12.69GiB    0.17 9.04kB 1.84kB
+#> 1     mongo mongo 9e9605a015d4    1.74 42.83MiB 12.69GiB    0.33 86.6MB  107MB
+#> 2     proxy proxy ca323ae39e42    0.00 21.75MiB 12.69GiB    0.17 9.73kB 1.84kB
 #>   BlockI BlockO PIDs         record_time extra
-#> 1     0B     0B   55 2020-04-23 21:59:06      
-#> 2     0B     0B   11 2020-04-23 21:59:06
+#> 1     0B     0B   55 2020-04-24 11:59:26      
+#> 2     0B     0B   11 2020-04-24 11:59:26
 ```
 
 The `extra` param is used to add extra information to the recording,
@@ -210,6 +210,30 @@ dockerstats_recurse(
 )
 ```
 
+Kill the container once done
+
+``` r
+system("docker kill hexmake")
+```
+
+## Byte conversions
+
+To handle the `MemUsage` columns, expressed as `byte`, `{dockerstats}`
+provides a series of functions to convert to byte, kib, mib or gib.
+
+The unit is kept in `attr("units")` of the result
+
+``` r
+dock_stats <- dockerstats()
+dock_stats$MemUsag
+#> [1] "55.75MiB" "12.09MiB" "21.75MiB" "477.6MiB" "42.73MiB"
+# Convert to kib
+to_kib(dock_stats$MemUsag)
+#> [1]  57088.00  12380.16  22272.00 489062.40  43755.52
+#> attr(,"unit")
+#> [1] "kib"
+```
+
 ## How columns are transformed
 
   - `CPUPerc` and `MemPerc` are stripped from the trailing `%`, and are
@@ -226,20 +250,10 @@ dockerstats_recurse(
 You can call `as_fs_byte()` from the `{fs}` package to manipulate the
 columns which are expressed in bytes.
 
-Note that you’ll need to install the `{fs}` package (it’s not imported
-by `{dockerstats}`).
-
 ``` r
 dock_stats <- dockerstats()
 
-sort(dock_stats$MemUsage)
-#> [1] "107.4MiB" "12.09MiB" "21.75MiB" "42.71MiB" "483.6MiB" "54.34MiB"
-
-dock_stats$MemUsage <- fs::as_fs_bytes(
-  dock_stats$MemUsage
-)
-sort(dock_stats$MemUsage)
-#>  12.1M  21.8M  42.7M  54.3M 107.4M 483.6M
+dock_stats$MemUsage <- to_kib(dock_stats$MemUsag)
 ```
 
 ``` r
@@ -248,19 +262,17 @@ ggplot(
   dock_stats, 
   aes(
     reorder(Name, MemUsage), 
-    MemUsage)
+    MemUsage
+  )
 ) + 
   geom_col() +
-  scale_y_continuous(labels = scales::label_bytes()) + 
+  scale_y_continuous(labels = scales::label_bytes(units = "kiB")) + 
   coord_flip() + 
   labs(
     title = "MemUsage of running containers", 
-    y = "MemUsage in bytes"
+    y = "MemUsage in kiB", 
+    x = "Containers"
   )
 ```
 
-<img src="man/figures/README-unnamed-chunk-12-1.png" width="100%" />
-
-``` r
-system("docker kill hexmake")
-```
+<img src="man/figures/README-unnamed-chunk-14-1.png" width="100%" />
