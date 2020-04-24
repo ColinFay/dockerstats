@@ -2,22 +2,8 @@
 % Please edit documentation in R/dockerstats-package.R
 \docType{package}
 \name{dockerstats-package}
-\alias{dockerstats}
 \alias{dockerstats-package}
-\title{dockerstats: A Wrapper Around 'docker stats'}
-\description{
-A wrapper around docker stats..
-}
-\seealso{
-Useful links:
-\itemize{
-  \item \url{https://github.com/ColinFay/dockerstats}
-  \item Report bugs at \url{https://github.com/ColinFay/dockerstats/issues}
-}
-
-}
+\title{dockerstats package}
 \author{
-\strong{Maintainer}: Colin Fay \email{contact@colinfay.me} (\href{https://orcid.org/0000-0001-7343-1846}{ORCID})
-
+colin \href{mailto:contact@colinfay.me}{contact@colinfay.me}
 }
-\keyword{internal}
