@@ -1,7 +1,7 @@
 # Based on https://support.google.com/websearch/answer/3284611?hl=fr#unitconverter
 b_c <- c(
   "b" = 1,
-  "kib" = 125,
+  "kib" = 1024,
   "mib" = 1049000,
   "gib" = 1.074e+9
 )
@@ -59,28 +59,28 @@ convertor <- function(
 #' The following table are used, based on Google Unit converter:
 #'
 #' ## bytes
-#' + "b" = 1,
-#' + "kib" = 125,
-#' + "mib" = 1049000,
-#' + "gib" = 1.074e+9
+#' + "1b" = 1 bytes,
+#' + "1kib" = 1024 bytes,
+#' + "1mib" = 1049000 bytes,
+#' + "1gib" = 1.074e+9 bytes
 #' +
 #' ## kib
-#' + "b" = 1/1024,
-#' + "kib" = 1,
-#' + "mib" = 1024,
-#' + "gib" = 1049000
+#' + "1b" = 1/1024 kib,
+#' + "1kib" = 1 kib,
+#' + "1mib" = 1024 kib,
+#' + "1gib" = 1049000 kib
 #'
 #' ## mib
-#' + "b" = 1/1.049e+6,
-#' + "kib" = 1/1024,
-#' + "mib" = 1,
-#' + "gib" = 1024
+#' + "1 b" = 1/1.049e+6 mib,
+#' + "1 kib" = 1/1024 mib,
+#' + "1 mib" = 1 mib,
+#' + "1 gib" = 1024 mib
 #'
-#' ## mib
-#' + "b" = 1/1.074e+9,
-#' + "kib" = 1/1.049e+6,
-#' + "mib" = 1/1024,
-#' + "gib" = 1
+#' ## gib
+#' + "1b" = 1/1.074e+9 gib,
+#' + "1kib" = 1/1.049e+6 gib,
+#' + "1mib" = 1/1024 gib,
+#' + "1gib" = 1 gib
 #'
 #' @param units A character vector to convert to bytes
 #'

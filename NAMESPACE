@@ -2,9 +2,13 @@
 
 export(append_csv)
 export(dockerstats)
+export(dockerstats_available)
 export(dockerstats_recurse)
 export(read_appended_csv)
 export(to_b)
 export(to_gib)
 export(to_kib)
 export(to_mib)
+importFrom(utils,read.csv)
+importFrom(utils,read.delim)
+importFrom(utils,write.table)

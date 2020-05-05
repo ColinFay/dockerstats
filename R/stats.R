@@ -26,6 +26,13 @@
 #'
 #' @return A data.frame
 #' @export
+#' @importFrom utils read.delim
+#' @examples
+#' if (interactive()){
+#'     if (dockerstats_available()) {
+#'         dockerstats()
+#'     }
+#' }
 dockerstats <- function(
   ...,
   all = FALSE,
@@ -125,6 +132,7 @@ dockerstats <- function(
     res$NetI <- gsub("([^/]*) / .*", "\\1", res$NetIO)
     res$BlockO <- gsub("[^/]*/ *(.*)", "\\1", res$BlockIO)
     res$BlockI <- gsub("([^/]*) / .*", "\\1", res$BlockIO)
+    class(res) <- c("dockerstats", class(res))
     res[, docker_stats_names]
   }
 

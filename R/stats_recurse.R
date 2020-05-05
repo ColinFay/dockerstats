@@ -4,6 +4,12 @@
 #' @param every Loop duration
 #' @param callback function to call on each loop, with the first argument being the result of dockerstats().
 #' @export
+#' @examples
+#' if (interactive()){
+#'     if (dockerstats_available()) {
+#'         dockerstats_recurse()
+#'     }
+#' }
 dockerstats_recurse <- function(
   ...,
   all = FALSE,

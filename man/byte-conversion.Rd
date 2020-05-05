@@ -27,38 +27,38 @@ to numeric.
 The following table are used, based on Google Unit converter:
 \subsection{bytes}{
 \itemize{
-\item "b" = 1,
-\item "kib" = 125,
-\item "mib" = 1049000,
-\item "gib" = 1.074e+9
+\item "1b" = 1 bytes,
+\item "1kib" = 1024 bytes,
+\item "1mib" = 1049000 bytes,
+\item "1gib" = 1.074e+9 bytes
 \item 
 }
 }
 
 \subsection{kib}{
 \itemize{
-\item "b" = 1/1024,
-\item "kib" = 1,
-\item "mib" = 1024,
-\item "gib" = 1049000
+\item "1b" = 1/1024 kib,
+\item "1kib" = 1 kib,
+\item "1mib" = 1024 kib,
+\item "1gib" = 1049000 kib
 }
 }
 
 \subsection{mib}{
 \itemize{
-\item "b" = 1/1.049e+6,
-\item "kib" = 1/1024,
-\item "mib" = 1,
-\item "gib" = 1024
+\item "1 b" = 1/1.049e+6 mib,
+\item "1 kib" = 1/1024 mib,
+\item "1 mib" = 1 mib,
+\item "1 gib" = 1024 mib
 }
 }
 
-\subsection{mib}{
+\subsection{gib}{
 \itemize{
-\item "b" = 1/1.074e+9,
-\item "kib" = 1/1.049e+6,
-\item "mib" = 1/1024,
-\item "gib" = 1
+\item "1b" = 1/1.074e+9 gib,
+\item "1kib" = 1/1.049e+6 gib,
+\item "1mib" = 1/1024 gib,
+\item "1gib" = 1 gib
 }
 }
 }

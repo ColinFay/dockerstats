@@ -1,13 +1,13 @@
 Package: dockerstats
 Title: A Wrapper Around 'docker stats'
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person(given = "Colin",
            family = "Fay",
            role = c("aut", "cre"),
            email = "contact@colinfay.me",
            comment = c(ORCID = "0000-0001-7343-1846"))
-Description: A wrapper around docker stats..
+Description: A wrapper around 'docker stats'.
 License: MIT + file LICENSE
 URL: https://github.com/ColinFay/dockerstats
 BugReports: https://github.com/ColinFay/dockerstats/issues
@@ -15,4 +15,5 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.0  
 Roxygen: list(markdown = TRUE)
-
+Suggests: 
+    testthat

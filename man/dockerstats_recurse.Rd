@@ -20,3 +20,10 @@ dockerstats_recurse(..., all = FALSE, extra = "", every = 1, callback = print)
 \description{
 Call dockerstats() recursively
 }
+\examples{
+if (interactive()){
+    if (dockerstats_available()) {
+        dockerstats_recurse()
+    }
+}
+}

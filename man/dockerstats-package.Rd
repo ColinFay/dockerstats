@@ -4,6 +4,9 @@
 \name{dockerstats-package}
 \alias{dockerstats-package}
 \title{dockerstats package}
+\description{
+A wrapper around the \code{dockerstats} command to analyse doker data from R.
+}
 \author{
 colin \href{mailto:contact@colinfay.me}{contact@colinfay.me}
 }

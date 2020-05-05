@@ -37,3 +37,10 @@ From \url{https://docs.docker.com/engine/reference/commandline/stats/}
 \note{
 MemPerc and PIDs are not available on Windows
 }
+\examples{
+if (interactive()){
+    if (dockerstats_available()) {
+        dockerstats()
+    }
+}
+}
