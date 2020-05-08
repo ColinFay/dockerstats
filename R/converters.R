@@ -84,6 +84,9 @@ convertor <- function(
 #'
 #' @param units A character vector to convert to bytes
 #'
+#' @return A character vector of size converted from the input. The
+#'    `attr("unit")` contains the unit of the result.
+#'
 #' @export
 #' @rdname byte-conversion
 #' @examples

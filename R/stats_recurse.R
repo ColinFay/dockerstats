@@ -2,7 +2,10 @@
 #'
 #' @inheritParams dockerstats
 #' @param every Loop duration
-#' @param callback function to call on each loop, with the first argument being the result of dockerstats().
+#' @param callback function to call on each loop, with the first argument being the result of `dockerstats()`.
+#'
+#' @return Nothing, primarly called for its side-effect.
+#'
 #' @export
 #' @examples
 #' if (interactive()){

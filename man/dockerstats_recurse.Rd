@@ -15,7 +15,10 @@ dockerstats_recurse(..., all = FALSE, extra = "", every = 1, callback = print)
 
 \item{every}{Loop duration}
 
-\item{callback}{function to call on each loop, with the first argument being the result of dockerstats().}
+\item{callback}{function to call on each loop, with the first argument being the result of \code{dockerstats()}.}
+}
+\value{
+Nothing, primarly called for its side-effect.
 }
 \description{
 Call dockerstats() recursively

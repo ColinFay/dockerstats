@@ -24,7 +24,8 @@
 #'
 #' MemPerc and PIDs are not available on Windows
 #'
-#' @return A data.frame
+#' @return A data.frame with the docker stats with class `"dockerstats"` append, for later expansion
+#'     (not used currently).
 #' @export
 #' @importFrom utils read.delim
 #' @examples

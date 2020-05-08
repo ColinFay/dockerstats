@@ -18,6 +18,10 @@ to_gib(units)
 \arguments{
 \item{units}{A character vector to convert to bytes}
 }
+\value{
+A character vector of size converted from the input. The
+\code{attr("unit")} contains the unit of the result.
+}
 \description{
 These function turnsbyte notation to numeric using a
 byte conversion. Useful for turning the \code{memUsage} column

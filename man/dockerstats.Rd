@@ -16,7 +16,8 @@ dockerstats(..., all = FALSE, notrunc = FALSE, extra = "")
 \item{extra}{Extra information to add in the "extra" column.}
 }
 \value{
-A data.frame
+A data.frame with the docker stats with class \code{"dockerstats"} append, for later expansion
+(not used currently).
 }
 \description{
 Run docker stats and returns a data.frame

@@ -4,10 +4,16 @@ Version: 0.1.0
 Authors@R: 
     person(given = "Colin",
            family = "Fay",
-           role = c("aut", "cre"),
+           role = c("aut", "cre", "cph"),
            email = "contact@colinfay.me",
            comment = c(ORCID = "0000-0001-7343-1846"))
-Description: A wrapper around 'docker stats'.
+Description: Run and analyse the results from a 'docker stats' call.
+    Bring inside R the output of the 'docker stats' command line
+    as a data.frame so that you can analyse it: this dataframe contains 
+    columns with the statistics about one or more container(s). You can also 
+    set R to watch recursively 'docker stats', and manage the 
+    result with a callback function (for example, it can be saved to a csv
+    to be later analysed).
 License: MIT + file LICENSE
 URL: https://github.com/ColinFay/dockerstats
 BugReports: https://github.com/ColinFay/dockerstats/issues

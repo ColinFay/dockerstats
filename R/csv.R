@@ -12,6 +12,9 @@
 #' @param print Should the result be printed to the console?
 #' @inheritParams utils::read.table
 #'
+#' @return `append_csv()` returns a function that can write a dataframe to a file.
+#'     `read_appended_csv()` returns a data.frame with the content of the read csv.
+#'
 #' @rdname csv
 #' @importFrom utils write.table read.csv
 #' @export

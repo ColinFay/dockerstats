@@ -33,6 +33,10 @@ read_appended_csv(file)
 
 \item{print}{Should the result be printed to the console?}
 }
+\value{
+\code{append_csv()} returns a function that can write a dataframe to a file.
+\code{read_appended_csv()} returns a data.frame with the content of the read csv.
+}
 \description{
 \code{append_csv()} returns a function that can the be used to
 append a csv with a dataframe content.
