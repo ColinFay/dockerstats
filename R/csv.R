@@ -28,7 +28,7 @@
 #'     }
 #' }
 append_csv <- function(
-  file,
+  file = tempfile(fileext = ".csv"),
   print = FALSE
 ){
   function(res){

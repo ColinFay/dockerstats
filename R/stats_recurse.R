@@ -18,10 +18,14 @@ dockerstats_recurse <- function(
   all = FALSE,
   extra = "",
   every = 1,
-  callback = print
+  callback = print,
+  verbose = TRUE
 ){
-  message("Starting `dockerstats_recurse()`")
-  message("To stop the process, press CTRL + C")
+  if (verbose){
+    cat("Starting `dockerstats_recurse()`")
+    cat("To stop the process, press CTRL + C")
+  }
+
   while(TRUE){
     callback(
       dockerstats(..., all = all, extra  = extra)
